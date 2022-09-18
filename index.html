@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang = "en-us">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/reset.css">
+    <link rel="stylesheet" href="./assets/style.css">
+    <title>Code-Quiz</title>
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li class="high-scores">
+                <a href="./high-scores.html">View High Scores</a>
+            </li>
+            <li id="Timer" class="Timer"></li>
+        </ul>
+    </nav>
+<main>
+    <section id="start" class="start">
+    <h1>JavaScript Quiz</h1>
+        <p>"Answer as many questions as possible correctly for a high score before the time expires. Incorrect answers will loose 10 seconds off the clock. Compare your results with your friends.</p>
+        <button id="button" class="button">Start Quiz</button>
+    </section>
+    <section id="JavaQuiz" class="JavaQuiz">
+        <header id="Question"></header>
+        <button id="question1" class="question1"></button>
+        <button id="question2" class="question1"></button>
+        <button id="question3" class="question1"></button>
+        <button id="question4" class="question1"></button>
+    </section>
+</main>
+    <script src="./assets/script.js"></script>
+</body>
+</html>
