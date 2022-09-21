@@ -1,0 +1,84 @@
+html {
+    font-size: medium;
+    background-color:antiquewhite;
+}
+
+nav {
+    margin: 20px;
+}
+
+ul {
+    display:flex;
+    flex-direction: column;
+    height: 20px;
+    padding: 10px;
+}
+
+li {
+    flex:15px;
+    font-size: 15pt;
+}
+
+/* li a{
+    text-decoration-color: darkgreen;
+} */
+
+section {
+    justify-content:center;
+    text-align:center;
+}
+
+p {
+    text-shadow: 10px;
+    font-size: 16px;
+    text-justify: center;
+}
+
+header {
+    font-size: 40px;
+    
+}
+
+/* .high-scores {
+    font-size: 40px;
+    text-align: left;
+    text-decoration-color: darkred;
+} */
+
+.Timer {
+    text-align: end;
+}
+
+.startButton {
+    text-align: center;
+
+}
+
+h1 {
+    text-decoration-color: darkred;
+    font-size: 30px;
+    margin-top: 20px;
+    
+}
+
+button {
+    padding:72px;
+    font-size: 16pt;
+    border-radius: 72px;
+    width: 280px;
+    height: 56px;
+    margin: 24px;
+    padding: 1px;
+    text-align: center;
+}
+
+/* .sectionEl .buttonEl {
+    padding: 72px;
+    font-size: 16pt;
+    border-radius: 72px;
+    width: 280px;
+    height: 56px;
+    margin: 24px;
+    padding: 1px;
+    text-align: center;
+} */
