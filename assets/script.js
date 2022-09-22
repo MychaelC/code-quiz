@@ -1,15 +1,16 @@
 //Variables
-var startButton = document.querySelector("startButton");
-var timerEl = document.querySelector("#Timer");
+var startButton = document.querySelector("#startButton");
+var timerEl = document.querySelector("#timer");
+var introEl = document.querySelector("#intro");
 
 var questionEl = document.querySelector('#question');
-var question1El = document.querySelector('#questionA');
-var question2El = document.querySelector('#questionA');
-var question3El = document.querySelector('#questionA');
-var question4El = document.querySelector('#questionA');
+var question1El = document.querySelector('#question1');
+var question2El = document.querySelector('#question2');
+var question3El = document.querySelector('#question3');
+var question4El = document.querySelector('#question4');
 
 var startEl = document.querySelector('#start');
-var JavaQuizEl = document.querySelector('#JavaQuiz');
+var javaQuizEl = document.querySelector('#javaQuiz');
 
 //Questions and Ans
 var questions = [
@@ -64,7 +65,7 @@ function startTimer() {
     timeInt = setInterval(
         function () {
             secondsLeft--;
-            timerEl.textContent = 'Timer: ${secondsLeft}';
+            timerEl.textContent = `Timer: ${secondsLeft}`;
             if (secondsLeft === 0) {
                 playerScore = 0;
                 clearInterval(timeInt);
@@ -73,7 +74,7 @@ function startTimer() {
                 playerScore = 0;
                 enterScore();
             }
-        }, 100);
+        }, 1000);
 };
 //Begin Java Quiz
 startButton.addEventListener("click", startQuiz);
@@ -81,20 +82,20 @@ function startQuiz() {
     playerScore = 0;
     startTimer();
     introEl.setAttribute("style", "display: none");
-    JavaQuizEl.setAttribute("style", "display: block");
+    javaQuizEl.setAttribute("style", "display: block");
     loadQuestions();
 };
 // Starting questions
 function loadQuestions() {
     questionEl.textContent = questions[questionIndex].question;
-    question1El.textContent = '${questions[questionIndex].q1}';
-    question2El.textContent = '${questions[questionIndex].q2}';
-    question3El.textContent = '${questions[questionIndex].q3}';
-    question4El.textContent = '${questions[questionIndex].q4}';
+    question1El.textContent = questions[questionIndex].a;
+    question2El.textContent = questions[questionIndex].b;
+    question3El.textContent = questions[questionIndex].c;
+    question4El.textContent = questions[questionIndex].d;
 };
 //Player answer choices
 var incorrectEL = document.querySelector("#incorrect");
-JavaQuizEl.addEventListener("click", function (event) {
+javaQuizEl.addEventListener("click", function (event) {
     var element = event.target;
     if (element.matches(".questionA")) {
         var check = element.innerText;
