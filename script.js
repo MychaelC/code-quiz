@@ -1,15 +1,17 @@
+//Variables
 var startButton = document.querySelector("startButton");
 var timerEl = document.querySelector("#Timer");
 
 var questionEl = document.querySelector('#question');
-var question1El = document.querySelector('#question1');
-var question2El = document.querySelector('#question2');
-var question3El = document.querySelector('#question3');
-var question4El = document.querySelector('#question4');
+var question1El = document.querySelector('#questionA');
+var question2El = document.querySelector('#questionA');
+var question3El = document.querySelector('#questionA');
+var question4El = document.querySelector('#questionA');
 
 var startEl = document.querySelector('#start');
 var JavaQuizEl = document.querySelector('#JavaQuiz');
 
+//Questions and Ans
 var questions = [
     {
         question:"What is JavaScript abreviated as?",
@@ -52,27 +54,28 @@ var questions = [
         answer: "98%"
     }
 ];
+//Game variables
 var playerScore;
-var timeLeft = 60;
+var secondsLeft = 60;
 var questionIndex = 0;
 var timeInt;
-
-function startTime() {
+//Start Time
+function startTimer() {
     timeInt = setInterval(
         function () {
-            timeLeft--;
-            timerEl.textContent = 'Timer: ${timeLeft}';
-            if (timeLeft === 0) {
+            secondsLeft--;
+            timerEl.textContent = 'Timer: ${secondsLeft}';
+            if (secondsLeft === 0) {
                 playerScore = 0;
                 clearInterval(timeInt);
                 timerEl.textContent = "";
                 alert("Game Over!");
                 playerScore = 0;
-                enterHscore();
+                enterScore();
             }
         }, 100);
 };
-
+//Begin Java Quiz
 startButton.addEventListener("click", startQuiz);
 function startQuiz() {
     playerScore = 0;
@@ -81,7 +84,7 @@ function startQuiz() {
     JavaQuizEl.setAttribute("style", "display: block");
     loadQuestions();
 };
-
+// Starting questions
 function loadQuestions() {
     questionEl.textContent = questions[questionIndex].question;
     question1El.textContent = '${questions[questionIndex].q1}';
@@ -89,14 +92,14 @@ function loadQuestions() {
     question3El.textContent = '${questions[questionIndex].q3}';
     question4El.textContent = '${questions[questionIndex].q4}';
 };
-
-var incorrectEL = document.querySelector("Incorrect");
+//Player answer choices
+var incorrectEL = document.querySelector("#incorrect");
 JavaQuizEl.addEventListener("click", function (event) {
     var element = event.target;
-    if (element.matches(".question1")) {
+    if (element.matches(".questionA")) {
         var check = element.innerText;
         if (check === questions[questionIndex].answer) {
-            timeLeft = timeLeft + 5;
+            secondsLeft = secondsLeft + 5;
             alert("Correct!");
             incorrectEl.textContent = "";
 
@@ -106,15 +109,15 @@ JavaQuizEl.addEventListener("click", function (event) {
                 loadQuestions();
             } else {
                 alert("Complete!");
-                playerScore = timeLeft;
+                playerScore = secondsLeft;
                 clearInterval(timeInt);
                 timerEl.textContent = "";
-                enterHscore ();
+                enterScore ();
             }
         } else {
-            timeLeft = timeLeft -10;
+            secondsLeft = secondsLeft -10;
             incorrectEl.textContent = "Incorrect -10 seconds";
-            if (timeLeft <= 0) {
+            if (secondsLeft <= 0) {
                 playerScore = 0;
                 clearInterval(timeInt);
                 timerEl.textContent = "";
