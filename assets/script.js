@@ -9,6 +9,8 @@ var question2El = document.querySelector('#question2');
 var question3El = document.querySelector('#question3');
 var question4El = document.querySelector('#question4');
 
+var incorrectEL = document.querySelector('#incorrect');
+
 var startEl = document.querySelector('#start');
 var javaQuizEl = document.querySelector('#javaQuiz');
 
@@ -102,7 +104,7 @@ javaQuizEl.addEventListener("click", function (event) {
         if (check === questions[questionIndex].answer) {
             secondsLeft = secondsLeft + 5;
             alert("Correct!");
-            incorrectEl.textContent = "";
+            incorrectEL.textContent = "";
 
             var qlength = questions.length -1;
             if (questionIndex < qlength) {
@@ -117,7 +119,7 @@ javaQuizEl.addEventListener("click", function (event) {
             }
         } else {
             secondsLeft = secondsLeft -10;
-            incorrectEl.textContent = "Incorrect -10 seconds";
+            incorrectEL.textContent = "Incorrect -10 seconds";
             if (secondsLeft <= 0) {
                 playerScore = 0;
                 clearInterval(timeInt);
