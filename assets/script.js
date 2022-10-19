@@ -125,8 +125,17 @@ javaQuizEl.addEventListener("click", function (event) {
                 clearInterval(timeInt);
                 timerEl.textContent = "";
                 alert("Out of time!");
-                enterHscore();
+                enterScore();
             }
         }
     }
 });
+function enterScore () {
+    var initials = prompt("Enter your initials");
+    var obj =  {initials, score:secondsLeft};
+
+    localStorage.setItem("Initials", JSON.stringify(obj))
+    document.querySelector(".initials") .innerText= "Initials " + highScore.initials + "Score " + highScore.score
+}
+var highScore = JSON.parse(localStorage.getItem("Initials"))
+document.querySelector(".initials") .innerText= "Initials " + highScore.initials + "Score " + highScore.score
