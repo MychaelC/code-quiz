@@ -12,7 +12,7 @@ Run the quiz in your browser to begin.
 
 # Usage
 
-View live link here:
+View live link here: https://mychaelc.github.io/code-quiz/
 
 # Technologies
 
